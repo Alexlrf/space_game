@@ -1,0 +1,20 @@
+<header>
+  <div
+    class="text-center bg-image"
+    style="
+      background-image: url('../../../assets/imagens/floresta.jpg');
+      height: 110px;
+    "
+  >
+    <div class="container_header">
+      <!-- IMAGENS -->
+      <div *ngFor="let imagem of imagens">
+        <app-imagem-header [imagem]="imagem"> </app-imagem-header>
+      </div>
+      <!-- PONTUACAO DO JOGADOR -->
+      <div id="pontuacao_jogador">
+        <label id="valor_usuario">100</label>
+      </div>
+    </div>
+  </div>
+</header>
