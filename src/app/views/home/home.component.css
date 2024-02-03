@@ -1,0 +1,46 @@
+#home_container {
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../../../assets/imagens/floresta_home.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+}
+
+#home_container div {
+  width: 150px;
+  margin: 20px;
+}
+
+.form-select, .form-control {
+  background-color: black;
+  color: white;
+  border: 3px solid yellowgreen;
+  border-radius: 15px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#info_jogador {
+  width: 20%;
+  height: 20%;
+  align-self: center;
+  justify-self: center;
+}
+
+#iniciar_jogo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  padding: 20px;
+  margin-top: 20px;
+  border: 5px double black;
+  font-size: 20px;
+  font-weight: bolder;
+  font-family: fantasy;
+}
+
+
+
+

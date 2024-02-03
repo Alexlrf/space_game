@@ -1,0 +1,15 @@
+#container_footer {
+  margin: 0;
+  height: 11.3vh;
+  background-color: rgb(73, 77, 77);
+  color: aliceblue;
+  /* display: flex;
+  text-align: center; */
+}
+
+.copyright {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-self: center;
+}

@@ -11,6 +11,8 @@ import { ClassificacaoJogadoresComponent } from './componentes/classificacao-jog
 import { HomeComponent } from './views/home/home.component';
 import { JogoComponent } from './views/jogo/jogo.component';
 import { SobreComponent } from './views/sobre/sobre.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { SobreComponent } from './views/sobre/sobre.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
