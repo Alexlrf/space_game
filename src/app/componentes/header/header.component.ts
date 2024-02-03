@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ImagemHeader } from '../imagem-header/ImagemHeader';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header-component',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit{
 
   baseUrl: string = '../../../assets/imagens/'
 
@@ -24,5 +25,14 @@ export class HeaderComponent {
       descricao: 'jacare'
     }
   ]
+
+  constructor(private router: Router) {}
+
+  ngOnInit(): void {
+  }
+
+  irParaHome() {
+    this.router.navigate(['/home'])
+  }
 
 }

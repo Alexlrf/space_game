@@ -1,0 +1,11 @@
+#container_jogo {
+  background-image: url(../../../assets/imagens/floresta_jogo_2.png);
+  overflow: hidden;
+  width: 100vw;
+  height: 81vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}

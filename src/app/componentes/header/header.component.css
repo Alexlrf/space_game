@@ -6,6 +6,28 @@
   justify-content: space-around;
 }
 
+#container_logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  color: white;
+}
+
+#container_logo:hover {
+  cursor: pointer;
+}
+
+#logo {
+  width: 100px;
+  border-radius: 50%;
+}
+
+#texto_logo {
+  text-shadow: 0 0 0.2em rgb(56, 36, 187), 0 0 0.2em #87F,
+  0 0 0.2em rgb(51, 40, 121);
+}
+
 #pontuacao_jogador {
   width: 200px;
   display: flex;
@@ -23,4 +45,5 @@
   color: white;
   text-shadow: 3px 3px #ff0000;
 }
+
 

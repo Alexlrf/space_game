@@ -2,11 +2,19 @@
   <div
     class="text-center bg-image"
     style="
-      background-image: url('../../../assets/imagens/floresta.jpg');
+      background-image: url('../../../assets/imagens/floresta_jogo.jpg');
       height: 110px;
     "
   >
     <div class="container_header">
+      <div (click)="irParaHome()" id="container_logo">
+        <img
+          id="logo"
+          src="../../../assets/imagens/logo.png"
+          alt="logo com ferradura, trevo e joaninha"
+        />
+        <span id="texto_logo">Selva da Sorte</span>
+      </div>
       <!-- IMAGENS -->
       <div *ngFor="let imagem of imagens">
         <app-imagem-header [imagem]="imagem"> </app-imagem-header>

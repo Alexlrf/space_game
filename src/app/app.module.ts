@@ -8,6 +8,11 @@ import { ImagemHeaderComponent } from './componentes/imagem-header/imagem-header
 import { HeaderComponent } from './componentes/header/header.component';
 import { FooterComponent } from './componentes/footer/footer.component';
 import { ClassificacaoJogadoresComponent } from './componentes/classificacao-jogadores/classificacao-jogadores.component';
+import { HomeComponent } from './views/home/home.component';
+import { JogoComponent } from './views/jogo/jogo.component';
+import { SobreComponent } from './views/sobre/sobre.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -15,11 +20,16 @@ import { ClassificacaoJogadoresComponent } from './componentes/classificacao-jog
     HeaderComponent,
     ClassificacaoJogadoresComponent,
     ImagemHeaderComponent,
-    FooterComponent
+    FooterComponent,
+    HomeComponent,
+    JogoComponent,
+    SobreComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

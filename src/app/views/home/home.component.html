@@ -1,0 +1,58 @@
+<form [formGroup]="formulario">
+  <div
+    class="alert alert-danger"
+    role="alert"
+    *ngIf="mensagemErro"
+    style="margin: 0"
+  >
+    {{ mensagemErro }}
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+      style="float: right"
+      (click)="limparMensagemErro()"
+    ></button>
+  </div>
+  <div id="home_container">
+    <div id="info_jogador">
+      <div>
+        <input
+          type="text"
+          class="form-control"
+          aria-describedby="inputGroup-sizing-default"
+          formControlName="nomeJogador"
+          placeholder="Digite o nome"
+        />
+      </div>
+      <div>
+        <select
+          *ngIf="!formulario.get('nomeJogador')?.errors"
+          class="form-select"
+          formControlName="nivel"
+        >
+          <option selected *ngIf="!formulario.get('nomeJogador')?.touched">
+            Nível
+          </option>
+          <option *ngFor="let nivel of niveisJogo">
+            {{ nivel }}
+          </option>
+        </select>
+
+        <button
+          id="iniciar_jogo"
+          type="button"
+          class="btn btn-warning"
+          (click)="comecarJogo()"
+          *ngIf="
+            !formulario.get('nomeJogador')?.errors &&
+            !formulario.get('nivel')?.errors
+          "
+        >
+          Vamos Jogar !
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
