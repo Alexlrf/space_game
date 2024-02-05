@@ -7,7 +7,13 @@
     "
   >
     <div class="container_header">
-      <div (click)="irParaHome()" id="container_logo">
+      <div
+        (click)="irParaHome()"
+        id="container_logo"
+        data-bs-toggle="tooltip"
+        data-bs-placement="right"
+        title="Ir para a Home"
+      >
         <img
           id="logo"
           src="../../../assets/imagens/logo.png"
@@ -15,6 +21,7 @@
         />
         <span id="texto_logo">Selva da Sorte</span>
       </div>
+
       <!-- IMAGENS -->
       <div *ngFor="let imagem of imagens">
         <app-imagem-header [imagem]="imagem"> </app-imagem-header>
