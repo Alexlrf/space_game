@@ -1,4 +1,5 @@
 <form [formGroup]="formulario">
+  <!-- Mensagem de erro -->
   <div
     class="alert alert-danger"
     role="alert"
@@ -6,6 +7,7 @@
     style="margin: 0"
   >
     {{ mensagemErro }}
+
     <button
       type="button"
       class="btn-close"
@@ -15,43 +17,79 @@
       (click)="limparMensagemErro()"
     ></button>
   </div>
-  <div id="home_container">
-    <div id="info_jogador">
-      <div>
-        <input
-          type="text"
-          class="form-control"
-          aria-describedby="inputGroup-sizing-default"
-          formControlName="nomeJogador"
-          placeholder="Digite o nome"
-        />
-      </div>
-      <div>
-        <select
-          *ngIf="!formulario.get('nomeJogador')?.errors"
-          class="form-select"
-          formControlName="nivel"
-        >
-          <option selected *ngIf="!formulario.get('nomeJogador')?.touched">
-            Nível
-          </option>
-          <option *ngFor="let nivel of niveisJogo">
-            {{ nivel }}
-          </option>
-        </select>
 
-        <button
-          id="iniciar_jogo"
-          type="button"
-          class="btn btn-warning"
-          (click)="comecarJogo()"
-          *ngIf="
-            !formulario.get('nomeJogador')?.errors &&
-            !formulario.get('nivel')?.errors
-          "
-        >
-          Vamos Jogar !
-        </button>
+  <!-- Botao modal -->
+  <div id="home_container">
+    <button
+      id="iniciar_jogo"
+      type="button"
+      class="btn btn-warning"
+      data-bs-toggle="modal"
+      data-bs-target="#modal_jogar"
+    >
+      Jogar
+    </button>
+  </div>
+
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="modal_jogar"
+    tabindex="-1"
+    aria-labelledby="modal_inicio_jogo"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" id="modal-dialog">
+      <div class="modal-content">
+        <div id="header_modal">
+          <h2 id="modal_inicio_jogo">Falta pouco!</h2>
+        </div>
+        <div class="modal-body" id="info_jogador">
+          <div>
+            <input
+              type="text"
+              class="form-control"
+              aria-describedby="inputGroup-sizing-default"
+              formControlName="nomeJogador"
+              placeholder="Digite o nome"
+            />
+          </div>
+          <div>
+            <select
+              *ngIf="!formulario.get('nomeJogador')?.errors"
+              class="form-select"
+              formControlName="nivel"
+            >
+              <option selected *ngIf="!formulario.get('nomeJogador')?.touched">
+                Nível
+              </option>
+              <option *ngFor="let nivel of niveisJogo">
+                {{ nivel }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div id="footer-modal">
+          <button
+            type="button"
+            class="btn btn-outline-danger"
+            data-bs-dismiss="modal"
+          >
+            Voltar
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-success"
+            data-bs-dismiss="modal"
+            (click)="comecarJogo()"
+            *ngIf="
+              !formulario.get('nomeJogador')?.errors &&
+              !formulario.get('nivel')?.errors
+            "
+          >
+            Jogar
+          </button>
+        </div>
       </div>
     </div>
   </div>

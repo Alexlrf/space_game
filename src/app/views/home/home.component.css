@@ -15,6 +15,8 @@
 }
 
 .form-select, .form-control {
+  width: 150px;
+  margin: 15px 0;
   background-color: black;
   color: white;
   border: 3px solid yellowgreen;
@@ -23,10 +25,11 @@
 }
 
 #info_jogador {
-  width: 20%;
-  height: 20%;
+  display: flex;
+  flex-direction: column;
   align-self: center;
   justify-self: center;
+  justify-content: center;
 }
 
 #iniciar_jogo {
@@ -36,11 +39,36 @@
   padding: 20px;
   margin-top: 20px;
   border: 5px double black;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bolder;
-  font-family: fantasy;
+  /* font-family: fantasy; */
+  color: aliceblue;
+  text-shadow: 0 0 0.2em rgb(26, 153, 104), 0 0 0.2em rgb(61, 223, 88),
+  0 0 0.2em rgb(7, 104, 44);
 }
 
+/* MODAL */
 
+#header_modal {
+  display: flex;
+  justify-content: space-between;
+  padding: 7px;
+  color: azure;
+  text-shadow: 0 0 0.2em rgb(26, 153, 68), 0 0 0.2em rgb(61, 223, 88),
+  0 0 0.2em rgb(7, 104, 44);
+}
+
+#modal_inicio_jogo {
+  align-self: center;
+  width: 100%;
+  text-align: center;
+
+}
+
+#footer-modal {
+  display: flex;
+  justify-content: space-around;
+  margin: 7px;
+}
 
 
