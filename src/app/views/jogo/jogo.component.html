@@ -1,3 +1,7 @@
 <app-header-component></app-header-component>
-<div id="container_jogo"></div>
-<!-- <app-footer-component></app-footer-component> -->
+<div id="container_jogo">
+  <app-classificacao-jogadores-component></app-classificacao-jogadores-component>
+  <div id="imagens_jogo" *ngFor="let imagem of imagens">
+    <app-imagem-jogo class="imagem_jogo" [imagem]="imagem"></app-imagem-jogo>
+  </div>
+</div>
