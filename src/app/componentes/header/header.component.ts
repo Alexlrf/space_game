@@ -12,18 +12,18 @@ export class HeaderComponent implements OnInit{
   baseUrl: string = '../../../assets/imagens/'
 
   imagens: Imagem[] = [
-    {
-      url: `${this.baseUrl}carneiro.png`,
-      descricao: 'carneiro'
-    },
-    {
-      url: `${this.baseUrl}zebra.png`,
-      descricao: 'zebra'
-    },
-    {
-      url: `${this.baseUrl}jacare.png`,
-      descricao: 'jacare'
-    }
+    // {
+    //   url: `${this.baseUrl}carneiro.png`,
+    //   descricao: 'carneiro'
+    // },
+    // {
+    //   url: `${this.baseUrl}zebra.png`,
+    //   descricao: 'zebra'
+    // },
+    // {
+    //   url: `${this.baseUrl}jacare.png`,
+    //   descricao: 'jacare'
+    // }
   ]
 
   constructor(private router: Router) {}

@@ -1,23 +1,23 @@
 #container_jogo {
-  background-image: url(../../../assets/imagens/paisagem_2.png);
-  overflow: hidden;
-  width: 100vw;
+  background-image: url(../../../assets/imagens/fundo_jogo.jpg);
+  /* overflow: hidden; */
+  /* width: 100vw; */
   height: 81vh;
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat; */
   background-size: cover;
   display: flex;
   justify-content: space-around;
-  margin: 0;
-  max-height: fit-content;
+  /* margin: 0; */
+  /* max-height: fit-content; */
 }
 
 #imagens_jogo {
   display: flex;
-  height: 40vh;
-  margin-top: 50px;
+  /* margin-top: 50px; */
+  align-items: center;
+  justify-content: space-around;
 }
 
 .img_header {
-  height: 100px;
   margin: 5px;
 }
