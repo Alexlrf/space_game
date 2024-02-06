@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ImagemHeader } from '../imagem-header/ImagemHeader';
+import { Imagem } from '../../Imagem';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,7 +11,7 @@ export class HeaderComponent implements OnInit{
 
   baseUrl: string = '../../../assets/imagens/'
 
-  imagens: ImagemHeader[] = [
+  imagens: Imagem[] = [
     {
       url: `${this.baseUrl}carneiro.png`,
       descricao: 'carneiro'
