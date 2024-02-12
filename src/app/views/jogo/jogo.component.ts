@@ -9,47 +9,37 @@ import { Imagem } from 'src/app/Imagem';
 export class JogoComponent implements OnInit {
 
   baseUrl: string = '../../../assets/imagens/'
+
+  // simbolos: string[] =  ['terra', 'terra', 'terra']
   simbolos: string[] =  ['lua', 'marte', 'saturno', 'terra']
-  imagens: Imagem[] = [
-    // {
-    //   url: `${this.baseUrl}terra.png`,
-    //   descricao: 'terra'
-    // },
-    // {
-    //   url: `${this.baseUrl}marte.png`,
-    //   descricao: 'marte'
-    // },
-    // {
-    //   url: `${this.baseUrl}saturno.png`,
-    //   descricao: 'saturno'
-    // },
-    // {
-    //   url: `${this.baseUrl}lua.png`,
-    //   descricao: 'lua'
-    // }
-  ]
+  imagens: Imagem[] = []
+  imagemLoader: Imagem = {url: `${this.baseUrl}satelite.gif`, descricao: 'satelite'}
+  imagensLoader: Imagem[] = [this.imagemLoader, this.imagemLoader, this.imagemLoader]
 
   constructor() {}
 
   ngOnInit(): void {
-    this.iniciarSorteioSimbolos()
+    this.apresentarSimbolosSorteados('lua', 'saturno', 'terra')
   }
 
   iniciarSorteioSimbolos() {
-    let primeiroSimbolo = this.sortearSimbolo();
-    let segundoSimbolo  = this.sortearSimbolo();
-    let terceiroSimbolo = this.sortearSimbolo();
-    // this.loadMudaSimbolos()
-    this.apresentarSimbolosSorteados(primeiroSimbolo, segundoSimbolo, terceiroSimbolo)
-    let ganhou = this.verificarAcerto(primeiroSimbolo, segundoSimbolo, terceiroSimbolo)
-    if (ganhou) {
-        setTimeout(()=> {
-          // this.definirImagemBackground(formHtml, this.montarUrlImagem('chuva_moedas'))
-          // this.realizarProcessoGanhou()
-        }, 2400)
-    } else {
-        // setTimeout(this.habilitarBotaoAposta, 2200)
-    }
+    this.imagens = this.imagensLoader
+    setTimeout(()=> {
+      let primeiroSimbolo = this.sortearSimbolo();
+      let segundoSimbolo  = this.sortearSimbolo();
+      let terceiroSimbolo = this.sortearSimbolo();
+      this.apresentarSimbolosSorteados(primeiroSimbolo, segundoSimbolo, terceiroSimbolo)
+      let ganhou = this.verificarAcerto(primeiroSimbolo, segundoSimbolo, terceiroSimbolo)
+      if (ganhou) {
+          setTimeout(()=> {alert('Ganhou!')
+              //this.definirImagemBackground('teste', this.montarUrlImagem('chuva_moedas'))
+             // this.realizarProcessoGanhou()
+          }, 2400)
+      } else {
+        //alert('Verificou Perdeu!')
+          //setTimeout(this.habilitarBotaoAposta, 2200)
+      }
+    }, 2400)
 }
 
   verificarAcerto(primeiroSimboloParam: string, segundoSimboloParam: string, terceiroSimboloParam: string) {
@@ -72,30 +62,42 @@ export class JogoComponent implements OnInit {
   }
 
   apresentarSimbolosSorteados(primeiroSimboloParam: string, segundoSimboloParam: string, terceiroSimboloParam: string) {
-    let tempos = [2015, 1480, 1710, 2000, 1550, 1620, 1815, 1900, 1690, 1880, 1499, 1680, 1510, 1790, 1950]
+    let tempos = [2100, 1400, 1800, 1200, 2500]
+    let tempo = tempos[Math.floor(Math.random() * tempos.length)]
     setTimeout(()=> {
       this.definirImagemBackground(primeiroSimboloParam, this.montarUrlImagem(primeiroSimboloParam))
-    }, tempos[Math.floor(Math.random() * tempos.length)])
+    }, tempo)
     setTimeout(()=> {
       this.definirImagemBackground(segundoSimboloParam, this.montarUrlImagem(segundoSimboloParam))
-    }, tempos[Math.floor(Math.random() * tempos.length)])
+    }, tempo + 900)
     setTimeout(()=> {
       this.definirImagemBackground(terceiroSimboloParam, this.montarUrlImagem(terceiroSimboloParam))
-    }, tempos[Math.floor(Math.random() * tempos.length)])
+    }, tempo + 1800)
+    this.imagens = []
   }
 
   montarUrlImagem(simboloParam: string) {
-    console.log(`${this.baseUrl}${ simboloParam }.png`)
+    if(simboloParam.endsWith('satelite')) {
+      return `${this.baseUrl}${ simboloParam }.gif`
+    }
     return `${this.baseUrl}${ simboloParam }.png`
   }
 
-  // loadMudaSimbolos() {
-  //   this.definirImagemBackground(label1, imgAmpulhetaLoader)
-  //   this.definirImagemBackground(label2, imgAmpulhetaLoader)
-  //   this.definirImagemBackground(label3, imgAmpulhetaLoader)
-  // }
+  loadMudaSimbolos() {
+    this.apresentarSimbolosSorteados('satelite', 'satelite', 'satelite')
+    this.imagens = this.imagensLoader
+  }
 
   definirImagemBackground(descricaoParam: string, imagemParam: string) {
+    if(descricaoParam.endsWith('satelite')) {
+      let img = {
+        url: imagemParam,
+        descricao: descricaoParam
+      }
+      this.imagens.push(img)
+      return
+    }
+
     let img = {
       url: imagemParam,
       descricao: descricaoParam
@@ -103,26 +105,25 @@ export class JogoComponent implements OnInit {
     this.imagens.push(img)
   }
 
-  // realizarProcessoGanhou() {
-  //   this.lucro = calcularGanho()
-  //   setTimeout(()=> {
-  //       atribuirLucroParaUsuario()
-  //   }, 3300)
-  // }
+  realizarProcessoGanhou() {
+    // this.lucro = calcularGanho()
+    setTimeout(()=> {
+        // atribuirLucroParaUsuario()
+    }, 3300)
+  }
 
-  // realizarProcessoPerdeu() {
-  //   setTimeout(()=> {
-  //       alternarModal()
-  //   }, 1000)
-  // }
+  realizarProcessoPerdeu() {
+    setTimeout(()=> {
+        // alternarModal()
+    }, 1000)
+  }
 
-  // desabilitarBotaoAposta() {
-  //   $("#btn").attr("disabled", true)
-  // }
+  desabilitarBotaoAposta() {
+  }
 
-  // habilitarBotaoAposta() {
-  //   $("#btn").attr("disabled", false)
-  // }
+  habilitarBotaoAposta() {
+
+  }
 
   // calcularGanho() {
   //   let valorLucro = parseInt(valorAposta) * (parseInt(multiplicadorHtml.val()) + 1)
