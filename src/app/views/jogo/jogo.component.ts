@@ -24,10 +24,10 @@ export class JogoComponent implements OnInit {
 
   iniciarSorteioSimbolos() {
     this.imagens = this.imagensLoader
+    let primeiroSimbolo = this.sortearSimbolo();
+    let segundoSimbolo  = this.sortearSimbolo();
+    let terceiroSimbolo = this.sortearSimbolo();
     setTimeout(()=> {
-      let primeiroSimbolo = this.sortearSimbolo();
-      let segundoSimbolo  = this.sortearSimbolo();
-      let terceiroSimbolo = this.sortearSimbolo();
       this.apresentarSimbolosSorteados(primeiroSimbolo, segundoSimbolo, terceiroSimbolo)
       let ganhou = this.verificarAcerto(primeiroSimbolo, segundoSimbolo, terceiroSimbolo)
       if (ganhou) {
@@ -43,19 +43,10 @@ export class JogoComponent implements OnInit {
 }
 
   verificarAcerto(primeiroSimboloParam: string, segundoSimboloParam: string, terceiroSimboloParam: string) {
-    let simbolosIguais = this.confirmarSimbolosIguais(primeiroSimboloParam, segundoSimboloParam, terceiroSimboloParam)
-    return simbolosIguais
+    return (primeiroSimboloParam.localeCompare(segundoSimboloParam)  == 0
+         && primeiroSimboloParam.localeCompare(terceiroSimboloParam) == 0
+         && segundoSimboloParam.localeCompare(terceiroSimboloParam)  == 0)
   }
-
-  confirmarSimbolosIguais(primeiroSimboloParam: string, segundoSimboloParam: string, terceiroSimboloParam: string) {
-    let comparaPrimeiroComSegundo  = primeiroSimboloParam.localeCompare(segundoSimboloParam)
-    let comparaPrimeiroComTerceiro = primeiroSimboloParam.localeCompare(terceiroSimboloParam)
-    let comparaSegundoComTerceiro  = segundoSimboloParam.localeCompare(terceiroSimboloParam)
-
-    return comparaPrimeiroComSegundo  == 0
-        && comparaPrimeiroComTerceiro == 0
-        && comparaSegundoComTerceiro  == 0
-}
 
   sortearSimbolo() {
     return this.simbolos[Math.floor(Math.random() * 4)]
