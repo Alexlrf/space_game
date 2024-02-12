@@ -12,6 +12,7 @@ import { HomeComponent } from './views/home/home.component';
 import { JogoComponent } from './views/jogo/jogo.component';
 import { SobreComponent } from './views/sobre/sobre.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ImagemJogoComponent } from './componentes/imagem-jogo/imagem-jogo.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     HomeComponent,
     JogoComponent,
-    SobreComponent
+    SobreComponent,
+    ImagemJogoComponent
   ],
   imports: [
     BrowserModule,

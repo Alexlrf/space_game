@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ImagemHeader } from './ImagemHeader';
+import { Imagem } from '../../Imagem';
 
 @Component({
   selector: 'app-imagem-header',
@@ -8,7 +8,7 @@ import { ImagemHeader } from './ImagemHeader';
 })
 export class ImagemHeaderComponent {
 
-  @Input() imagem: ImagemHeader = {
+  @Input() imagem: Imagem = {
     url:'',
     descricao: ''
   }

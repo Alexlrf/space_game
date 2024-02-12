@@ -1,35 +1,27 @@
 <header>
-  <div
-    class="text-center bg-image"
-    style="
-      background-image: url('../../../assets/imagens/floresta_jogo.jpg');
-      height: 110px;
-    "
-  >
-    <div class="container_header">
-      <div
-        (click)="irParaHome()"
-        id="container_logo"
-        data-bs-toggle="tooltip"
-        data-bs-placement="right"
-        title="Ir para a Home"
-      >
-        <img
-          id="logo"
-          src="../../../assets/imagens/logo.png"
-          alt="logo com ferradura, trevo e joaninha"
-        />
-        <span id="texto_logo">Selva da Sorte</span>
-      </div>
+  <div class="container_header">
+    <div
+      (click)="irParaHome()"
+      id="container_logo"
+      data-bs-toggle="tooltip"
+      data-bs-placement="right"
+      title="Ir para a Home"
+    >
+      <img
+        id="logo"
+        src="../../../assets/imagens/astronauta.png"
+        alt="astronauta"
+      />
+      <span id="texto_logo">Space Game</span>
+    </div>
 
-      <!-- IMAGENS -->
-      <div *ngFor="let imagem of imagens">
-        <app-imagem-header [imagem]="imagem"> </app-imagem-header>
-      </div>
-      <!-- PONTUACAO DO JOGADOR -->
-      <div id="pontuacao_jogador">
-        <label id="valor_usuario">100</label>
-      </div>
+    <!-- IMAGENS -->
+    <div *ngFor="let imagem of imagens">
+      <app-imagem-header [imagem]="imagem"> </app-imagem-header>
+    </div>
+    <!-- PONTUACAO DO JOGADOR -->
+    <div id="pontuacao_jogador">
+      <label id="valor_usuario">100</label>
     </div>
   </div>
 </header>

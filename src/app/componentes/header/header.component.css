@@ -1,9 +1,11 @@
 
 .container_header {
-  background-color: rgba(0, 0, 0, 0.6);
+  /* background-image: url('../../../assets/imagens/fundo_home.jpg'); */
+  background-color: rgb(0, 0, 0);
+  padding: 10px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 #container_logo {
@@ -19,7 +21,7 @@
 }
 
 #logo {
-  width: 100px;
+  width: 80px;
   border-radius: 50%;
 }
 

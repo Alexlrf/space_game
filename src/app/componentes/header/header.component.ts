@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ImagemHeader } from '../imagem-header/ImagemHeader';
+import { Imagem } from '../../Imagem';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,19 +11,19 @@ export class HeaderComponent implements OnInit{
 
   baseUrl: string = '../../../assets/imagens/'
 
-  imagens: ImagemHeader[] = [
-    {
-      url: `${this.baseUrl}carneiro.png`,
-      descricao: 'carneiro'
-    },
-    {
-      url: `${this.baseUrl}zebra.png`,
-      descricao: 'zebra'
-    },
-    {
-      url: `${this.baseUrl}jacare.png`,
-      descricao: 'jacare'
-    }
+  imagens: Imagem[] = [
+    // {
+    //   url: `${this.baseUrl}carneiro.png`,
+    //   descricao: 'carneiro'
+    // },
+    // {
+    //   url: `${this.baseUrl}zebra.png`,
+    //   descricao: 'zebra'
+    // },
+    // {
+    //   url: `${this.baseUrl}jacare.png`,
+    //   descricao: 'jacare'
+    // }
   ]
 
   constructor(private router: Router) {}

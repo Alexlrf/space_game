@@ -1,0 +1,15 @@
+
+.img_jogo {
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin: 15px;
+  font-weight: bold;
+  font-size: 150px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 20px;
+}
+
+

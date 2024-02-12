@@ -1,3 +1,27 @@
 <app-header-component></app-header-component>
-<div id="container_jogo"></div>
-<!-- <app-footer-component></app-footer-component> -->
+<div id="container_jogo">
+  <app-classificacao-jogadores-component></app-classificacao-jogadores-component>
+  <div id="container_imagens">
+    <div id="imagens_jogo" *ngFor="let imagem of imagens; let i = index">
+      <app-imagem-jogo
+        class="imagem_jogo"
+        [imagem]="imagem"
+        id="imagem_{{ i }}"
+      ></app-imagem-jogo>
+    </div>
+  </div>
+  <div id="container_aposta">
+    <input id="input_aposta" type="number" placeholder="Aposta" autofocus />
+    <div class="operadores_resultado">X</div>
+    <input id="input_multiplicador" type="text" readonly value="10" />
+    <label id="valor_lucro">0000</label>
+    <!-- BOTAO JOGAR -->
+    <div id="botao_container">
+      <div id="bordaBotao">
+        <button id="btn_jogar" (click)="iniciarSorteioSimbolos()">
+          J O G A R
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
