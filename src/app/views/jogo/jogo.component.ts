@@ -6,12 +6,13 @@ import { Imagem } from 'src/app/Imagem';
   templateUrl: './jogo.component.html',
   styleUrls: ['./jogo.component.css']
 })
+
 export class JogoComponent implements OnInit {
 
   baseUrl: string = '../../../assets/imagens/'
 
-  // simbolos: string[] =  ['terra', 'terra', 'terra']
-  simbolos: string[] =  ['lua', 'marte', 'saturno', 'terra']
+  simbolos: string[] =  ['terra', 'terra', 'terra', 'terra']
+  // simbolos: string[] =  ['lua', 'marte', 'saturno', 'terra']
   imagens: Imagem[] = []
   imagemLoader: Imagem = {url: `${this.baseUrl}satelite.gif`, descricao: 'satelite'}
   imagensLoader: Imagem[] = [this.imagemLoader, this.imagemLoader, this.imagemLoader]
@@ -24,17 +25,17 @@ export class JogoComponent implements OnInit {
 
   iniciarSorteioSimbolos() {
     this.imagens = this.imagensLoader
-    let primeiroSimbolo = this.sortearSimbolo();
-    let segundoSimbolo  = this.sortearSimbolo();
-    let terceiroSimbolo = this.sortearSimbolo();
     setTimeout(()=> {
+      let primeiroSimbolo = this.sortearSimbolo();
+      let segundoSimbolo  = this.sortearSimbolo();
+      let terceiroSimbolo = this.sortearSimbolo();
       this.apresentarSimbolosSorteados(primeiroSimbolo, segundoSimbolo, terceiroSimbolo)
       let ganhou = this.verificarAcerto(primeiroSimbolo, segundoSimbolo, terceiroSimbolo)
       if (ganhou) {
           setTimeout(()=> {alert('Ganhou!')
               //this.definirImagemBackground('teste', this.montarUrlImagem('chuva_moedas'))
              // this.realizarProcessoGanhou()
-          }, 2400)
+          }, 4000)
       } else {
         //alert('Verificou Perdeu!')
           //setTimeout(this.habilitarBotaoAposta, 2200)
@@ -53,42 +54,26 @@ export class JogoComponent implements OnInit {
   }
 
   apresentarSimbolosSorteados(primeiroSimboloParam: string, segundoSimboloParam: string, terceiroSimboloParam: string) {
-    let tempos = [2100, 1400, 1800, 1200, 2500]
+    let tempos = [2000, 1400, 1700, 1200]
     let tempo = tempos[Math.floor(Math.random() * tempos.length)]
     setTimeout(()=> {
       this.definirImagemBackground(primeiroSimboloParam, this.montarUrlImagem(primeiroSimboloParam))
     }, tempo)
     setTimeout(()=> {
       this.definirImagemBackground(segundoSimboloParam, this.montarUrlImagem(segundoSimboloParam))
-    }, tempo + 900)
+    }, tempo + 600)
     setTimeout(()=> {
       this.definirImagemBackground(terceiroSimboloParam, this.montarUrlImagem(terceiroSimboloParam))
-    }, tempo + 1800)
+    }, tempo + 1200)
     this.imagens = []
   }
 
   montarUrlImagem(simboloParam: string) {
-    if(simboloParam.endsWith('satelite')) {
-      return `${this.baseUrl}${ simboloParam }.gif`
-    }
-    return `${this.baseUrl}${ simboloParam }.png`
-  }
-
-  loadMudaSimbolos() {
-    this.apresentarSimbolosSorteados('satelite', 'satelite', 'satelite')
-    this.imagens = this.imagensLoader
+    let extensao = simboloParam.endsWith('satelite') ? '.gif' : '.png'
+    return `${this.baseUrl}${ simboloParam }${extensao}`
   }
 
   definirImagemBackground(descricaoParam: string, imagemParam: string) {
-    if(descricaoParam.endsWith('satelite')) {
-      let img = {
-        url: imagemParam,
-        descricao: descricaoParam
-      }
-      this.imagens.push(img)
-      return
-    }
-
     let img = {
       url: imagemParam,
       descricao: descricaoParam
